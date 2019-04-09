@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Home from './home';
+import Riders from './riders';
+import Photos from './photos';
+import Submissions from './submissions';
+import Location from './location';
 import './App.css';
 
 class App extends Component {
@@ -12,22 +17,35 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/riders">Riders</Link>
+              </li>
+              <li>
+                <Link to="/location">Location</Link>
+              </li>
+              <li>
+                <Link to="/photos">Photos</Link>
+              </li>
+              <li>
+                <Link to="/submissions">Submissions</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Route path="/" exact component={Home} />
+          <Route path="/riders" component={Riders} />
+          <Route path="/location" component={Location} />
+          <Route path="/photos" component={Photos} />
+          <Route path="/submissions" component={Submissions} />
+        </div>
+      </Router>
     );
   }
 }
