@@ -6,6 +6,7 @@ import Photos from './photos';
 import Submissions from './submissions';
 import Location from './location';
 import './App.css';
+import Navbar from './navbar';
 
 class App extends Component {
   componentDidMount() {
@@ -19,25 +20,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/riders">Riders</Link>
-              </li>
-              <li>
-                <Link to="/location">Location</Link>
-              </li>
-              <li>
-                <Link to="/photos">Photos</Link>
-              </li>
-              <li>
-                <Link to="/submissions">Submissions</Link>
-              </li>
-            </ul>
-          </nav>
+          <Navbar />
 
           <Route path="/" exact component={Home} />
           <Route path="/riders" component={Riders} />
