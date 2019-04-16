@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Photos extends React.Component {
+class Gallery extends React.Component {
 
     render() {
         return (
@@ -10,4 +10,4 @@ class Photos extends React.Component {
 
 }
 
-export default Photos;
+export default Gallery;

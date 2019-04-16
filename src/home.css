@@ -1,0 +1,53 @@
+.main {
+    min-height: inherit;
+}
+.main-background {
+    background: url('./assets/img/athlete-bicycle-bicyclist-15765.jpg') top center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: inherit;
+    margin-top: -56px;
+}
+
+.navbar {
+    z-index: 1000;
+    box-shadow: 0px 3px 5px 3px rgba(0,0,0,0.3);
+}
+
+.main-overlay {
+   min-height: inherit;
+   /*background: -webkit-linear-gradient(45deg, rgba(72, 15, 144, 0.4),rgba(0, 0, 0, 0.75) 100%);*/
+   background: rgba(63,81,181,.7);
+   /*background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);*/
+   /*background: -webkit-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);*/
+}
+
+.main-body {
+    color: white;
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.countdown {
+    border-right: 2px solid white;
+}
+
+.social-links {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+}
+
+@media screen and (max-width: 425px) {
+    .countdown {
+        border: none;
+    }
+
+    .social-links {
+        text-align: center;
+    }
+}

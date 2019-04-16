@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
-    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
-    MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon
+    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, 
+    MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBContainer, 
     } from "mdbreact";
 
     class Navbar extends Component {
@@ -15,13 +15,15 @@ import {
 
           render() {
               return (
-                <MDBNavbar color="indigo" dark expand="md">
+                <MDBNavbar color="transparent" dark expand="md">
+                    <MDBContainer>
                     <MDBNavbarBrand>
+                        {/*<MDBIcon icon="bicycle" size="1x" />*/}
                         <strong className="white-text">Boulder Bike Tour</strong>
                     </MDBNavbarBrand>
                     <MDBNavbarToggler onClick={this.toggleCollapse} />
                     <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-                        <MDBNavbarNav right>
+                        <MDBNavbarNav className="pr-1"right>
 
                             <MDBNavItem active>
                                 <MDBNavLink to="/">Home</MDBNavLink>
@@ -33,20 +35,15 @@ import {
                                 <MDBNavLink to="/riders">Riders</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
-                                <MDBNavLink to="/photos">Photos</MDBNavLink>
+                                <MDBNavLink to="/gallery">Gallery</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
                                 <MDBNavLink to="/submissions">Submissions</MDBNavLink>
-                            </MDBNavItem>   
-
-                            <MDBNavItem>
-                                <MDBNavLink className="waves-effect waves-light" to="#!">
-                                    <MDBIcon fab icon="twitter" />
-                                </MDBNavLink>
-                            </MDBNavItem>                     
+                            </MDBNavItem>                       
                             
                         </MDBNavbarNav>
                     </MDBCollapse>
+                    </MDBContainer>
                 </MDBNavbar>
               );
           }

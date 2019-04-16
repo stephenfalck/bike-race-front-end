@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import Home from './home';
 import Riders from './riders';
-import Photos from './photos';
+import Gallery from './gallery';
 import Submissions from './submissions';
 import Location from './location';
 import './App.css';
@@ -19,13 +19,13 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="main">
           <Navbar />
 
           <Route path="/" exact component={Home} />
           <Route path="/riders" component={Riders} />
           <Route path="/location" component={Location} />
-          <Route path="/photos" component={Photos} />
+          <Route path="/gallery" component={Gallery} />
           <Route path="/submissions" component={Submissions} />
         </div>
       </Router>
