@@ -33,7 +33,20 @@
 
 .countdown {
     border-right: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+#month-unit {
+    font-size: 4rem;
+}
+
+.units {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
 
 .social-links {
     position: absolute;
@@ -42,7 +55,7 @@
     text-align: right;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 767px) {
     .countdown {
         border: none;
     }
@@ -50,4 +63,18 @@
     .social-links {
         text-align: center;
     }
+
+    #countdown-month-header {
+        font-size: 1.7rem;
+    }
+
+    #month-unit {
+        font-size: 2rem;
+    }
+
+    .units {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
 }
