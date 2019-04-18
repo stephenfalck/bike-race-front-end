@@ -3,6 +3,7 @@ import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, 
     MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBContainer, 
     } from "mdbreact";
+import './navbar.css'
 
     class Navbar extends Component {
         state = {
@@ -29,13 +30,13 @@ import {
                                 <MDBNavLink to="/">Home</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
+                                <MDBNavLink to="/gallery">Gallery</MDBNavLink>
+                            </MDBNavItem>
+                            <MDBNavItem>
                                 <MDBNavLink to="/location">Location</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
                                 <MDBNavLink to="/riders">Riders</MDBNavLink>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBNavLink to="/gallery">Gallery</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
                                 <MDBNavLink to="/submissions">Submissions</MDBNavLink>

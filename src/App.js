@@ -9,19 +9,18 @@ import './App.css';
 import Navbar from './navbar';
 
 class App extends Component {
-  componentDidMount() {
+  /*componentDidMount() {
     window.fetch('/riders')
       .then(response => response.json())
       .then(json => console.log(json))
       .catch(error => console.log(error));
-  }
+  }*/
 
   render() {
     return (
       <Router>
         <div className="main">
           <Navbar />
-
           <Route path="/" exact component={Home} />
           <Route path="/riders" component={Riders} />
           <Route path="/location" component={Location} />
