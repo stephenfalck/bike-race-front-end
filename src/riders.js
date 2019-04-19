@@ -63,7 +63,7 @@ class Riders extends React.Component {
                                     <MDBCard testimonial>
                                         <div className="card-up"></div>
                                         <div className="avatar mx-auto">
-                                            <img src={placeholder} className="img-fluid"/>
+                                            <img src={placeholder} className="img-fluid" alt="placeholder silhouette"/>
                                         </div>
                                         <MDBCardBody>
                                             <h4 className="font-weight-bold mb-4">{rider.first_name} {rider.last_name}</h4>
