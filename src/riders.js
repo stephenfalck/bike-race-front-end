@@ -20,34 +20,34 @@ class Riders extends React.Component {
   
     componentDidMount() {
         this.getRiders()
-      }
+    }
 
-      getRiders() {
-          fetch('/riders')
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        riders: result
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    })
-                }
-            )
-      }
+    getRiders() {
+        fetch('/riders')
+        .then(res => res.json())
+        .then(
+            (data) => {
+                this.setState({
+                    isLoaded: true,
+                    riders: data
+                });
+                console.log(data)
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                })
+            }
+        )
+    }
    
-
     
 
     render() {
         let {riders, error} = this.state;
-        console.log(riders)
-        console.log(error)
+            //console.log(riders)
+            //console.log(error)
         return (
             <MDBContainer>
                 <MDBRow>

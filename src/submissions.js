@@ -2,7 +2,7 @@ import React from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput } from "mdbreact";
 import './submissions.css';
 
-const RESET_VALUES = {first_name:'', last_name: '', email:'',slogan:''};
+const RESET_VALUES = {first_name: '', last_name: '', email: '', slogan: ''};
 
 class Submissions extends React.Component {
     constructor(props) {
@@ -43,6 +43,10 @@ class Submissions extends React.Component {
         .then(response => console.log('Success:', JSON.stringify(response)))
         .catch(error => console.error('Error:', error));
 
+        this.setState({
+            message: Object.assign({}, RESET_VALUES)
+        })
+
     }
 
     render() {
@@ -56,7 +60,6 @@ class Submissions extends React.Component {
                 <MDBRow>
                     <MDBCol>
                         <form>
-                            <p className="h5 text-center mb-4">Write to us</p>
                             <div className="white-text">
                                 <MDBInput
                                     label="First name"
@@ -108,7 +111,7 @@ class Submissions extends React.Component {
                                 type="submit"
                                 onClick={this.handleSubmit}
                             >
-                                Send <MDBIcon far icon="paper-plane" className="ml-1" />
+                                Submit <MDBIcon far icon="paper-plane" className="ml-1" />
                             </MDBBtn>
                             </div>
                         </form>
