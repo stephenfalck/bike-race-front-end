@@ -10,24 +10,28 @@ class Gallery extends React.Component {
         this.state = {
             error: null,
             isLoading: false,
+            page: 0,
             photos: []
         }
     }
 
     componentDidMount() {
         this.getPhotos();
-        //window.addEventListener('scroll', this.handleScroll);
-        //return () => window.removeEventListener('scroll', this.handleScroll); 
+        window.addEventListener('scroll', this.handleScroll);
+        return () => window.removeEventListener('scroll', this.handleScroll); 
         
     }
 
-    /*componentDidUpdate() {
+    componentDidUpdate() {
         if (!this.state.isLoading) return;
         this.getPhotos();
-    }*/
+        //console.log(this.state.isLoading)
+    }
 
     getPhotos() {
-        fetch('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=da5fa78acd55e27f8f6fbf03176f8790&tags=bikerace%2C+boulderbiketour&per_page=40&format=json&nojsoncallback=1', {
+        let url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=da5fa78acd55e27f8f6fbf03176f8790&tags=bikerace%2C+boulderbiketour&per_page=40&page=${(this.state.page) + 1}&format=json&nojsoncallback=1`
+
+        fetch(url, {
             mode: 'cors'
         })
         .then(res => res.json())
@@ -36,11 +40,13 @@ class Gallery extends React.Component {
                 this.setState((prevState) => {
                     //photos: data
                     //photos: data.photos.photo
-                    prevState.photos = data.photos.photo;
-                    return {photos: prevState.photos, isLoading: false}
+                    let arr = prevState.photos.concat(data.photos.photo);
+                    prevState.page = data.photos.page;
+                    return {photos: arr, page: prevState.page, isLoading: false}
                     
                 });
-                //console.log(data);
+                //console.log(this.state.photos);
+                //console.log(this.state.isLoading)
             },
             (error) => {
                 this.setState({
@@ -52,19 +58,20 @@ class Gallery extends React.Component {
     }
 
 
-    /*handleScroll = () => {
+    handleScroll = () => {
         if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) {
             return;
         }
+        //console.log('fetch more pics')
         this.setState({
             isLoading: true
         })
-    }*/
+        //console.log(this.state.isLoading)
+    }
 
     render() {
         let {photos} = this.state
         console.log(photos)
-        
         
         return (
             <MDBContainer>
