@@ -29,6 +29,7 @@ class Gallery extends React.Component {
     }
 
     getPhotos() {
+        //const apiKey = da5fa78acd55e27f8f6fbf03176f8790;
         let url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=da5fa78acd55e27f8f6fbf03176f8790&tags=bikerace%2C+boulderbiketour&per_page=40&page=${(this.state.page) + 1}&format=json&nojsoncallback=1`
 
         fetch(url, {

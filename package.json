@@ -4,11 +4,14 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@types/googlemaps": "^3.30.19",
+    "@types/markerclustererplus": "^2.1.33",
     "mdbreact": "^4.12.0",
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-google-maps": "^9.4.5",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.8",
     "typescript": "^3.4.3"
