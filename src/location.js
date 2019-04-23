@@ -1,8 +1,6 @@
 import React from 'react';
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
 import RidersMapContainer from './riders_map_container'
-import './location.css'
-
 
 
 class Location extends React.Component {
@@ -50,11 +48,8 @@ class Location extends React.Component {
                     <h1 className="text-center">Location</h1>
                     </MDBCol>
                 </MDBRow>
-                
-                    <RidersMapContainer riders={riders}></RidersMapContainer>
-                
-            </MDBContainer>
-            
+                <RidersMapContainer riders={riders}></RidersMapContainer>
+            </MDBContainer> 
         )
     }
 
