@@ -45,7 +45,7 @@ class Riders extends React.Component {
     
 
     render() {
-        let {riders, error} = this.state;
+        let {riders} = this.state;
             //console.log(riders)
             //console.log(error)
         return (

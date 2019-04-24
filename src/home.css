@@ -1,8 +1,9 @@
-.main {
+.home-page {
     min-height: inherit;
 }
-.main-background {
-    background: url('./assets/img/athlete-bicycle-bicyclist-15765.jpg') top center fixed;
+
+.header {
+    background: url('./assets/img/athlete-bicycle-bicyclist-15765.jpg') top center;
     background-size: cover;
     background-repeat: no-repeat;
     min-height: inherit;
@@ -10,25 +11,27 @@
 }
 
 
-.main-overlay {
+.header-overlay {
    min-height: inherit;
    /*background: -webkit-linear-gradient(45deg, rgba(72, 15, 144, 0.4),rgba(0, 0, 0, 0.75) 100%);*/
-   background: rgba(63,81,181,.7);
+   /*background: rgba(63,81,181,.7);*/
    /*background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);*/
+   background: -webkit-linear-gradient(90deg, rgba(0,78,140,0.8), rgba(236,154,151,0.7) 100%);
    /*background: -webkit-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);*/
 }
 
-.main-body {
+.header-body {
     color: white;
     min-height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative;
+    /*position: relative;*/
 }
 
-.countdown {
+#countdown {
     border-right: 2px solid white;
+    transition: border-right 5s ease-in;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,16 +46,16 @@
     font-weight: 400;
 }
 
+.short-text {
+    display: none;
+}
 
-.social-links {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: right;
+.social-links a {
+    color: rgb(129,177,255);
 }
 
 @media screen and (max-width: 767px) {
-    .countdown {
+    #countdown {
         border: none;
     }
 
@@ -73,4 +76,27 @@
         font-weight: 400;
     }
 
+}
+
+@media screen and (max-width: 425px) {
+    .short-text {
+        display: inline-block;
+    }
+
+    .full-text {
+        display: none;
+    }
+
+    #countdown {
+        margin-bottom: -2rem;
+        margin-top: 1rem;
+    }
+
+    #countdown .row {
+        justify-content: center;
+    }
+
+    #countdown, #title {
+        text-align: center;
+    }
 }

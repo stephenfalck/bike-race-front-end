@@ -6,9 +6,31 @@ import {
 import './navbar.css'
 
     class Navbar extends Component {
-        state = {
-            isOpen: false
-          };
+        constructor(props){
+            super(props);
+        
+            this.state = {
+              isTop: true,
+              isOpen: false
+
+            };
+          }
+        
+          componentDidMount() {
+            document.addEventListener('scroll', () => {
+              const isTop = window.scrollY < 56;
+              
+              if (isTop !== this.state.isTop) {
+                this.setState({isTop})
+              }
+            })
+          }
+
+          handleScroll = () => {
+            return this.state.isTop ? "not-scrolled" : "scrolled"
+          }
+
+        
 
           toggleCollapse = () => {
             this.setState({ isOpen: !this.state.isOpen });
@@ -16,7 +38,7 @@ import './navbar.css'
 
           render() {
               return (
-                <MDBNavbar color="transparent" dark expand="md">
+                <MDBNavbar color="transparent" dark expand="md" className={"fixed-top " + this.handleScroll()}>
                     <MDBContainer>
                     <MDBNavbarBrand>
                         {/*<MDBIcon icon="bicycle" size="1x" />*/}

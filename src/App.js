@@ -9,6 +9,7 @@ import './App.css';
 import Navbar from './navbar';
 
 class App extends Component {
+  
   /*componentDidMount() {
     window.fetch('/riders')
       .then(response => response.json())
@@ -19,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="main">
+        <div className="page">
           <Navbar />
           <Route path="/" exact component={Home} />
           <Route path="/riders" component={Riders} />
