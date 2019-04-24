@@ -1,9 +1,9 @@
-.home-page {
+#home-page {
     min-height: inherit;
 }
 
 .header {
-    background: url('./assets/img/athlete-bicycle-bicyclist-15765.jpg') top center;
+    background: url('./assets/img/athlete-bicycle-bicyclist-15765.jpg') center;
     background-size: cover;
     background-repeat: no-repeat;
     min-height: inherit;

@@ -55,7 +55,7 @@ class Home extends React.Component {
 
     render() {
         return (
-                <div className="home-page">
+                <div id="home-page">
                     <div className='header'>
                         <div className="header-overlay">
                             <MDBContainer className="header-body">

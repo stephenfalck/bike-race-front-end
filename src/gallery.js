@@ -1,5 +1,6 @@
 import React  from 'react';
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import PageHeader from './page_header'
 import './gallery.css';
 //import { func } from '../../../../../../Library/Caches/typescript/3.3/node_modules/@types/prop-types';
 
@@ -16,6 +17,7 @@ class Gallery extends React.Component {
     }
 
     componentDidMount() {
+        this.setState({isLoading: true})
         this.getPhotos();
         window.addEventListener('scroll', this.handleScroll);
         return () => window.removeEventListener('scroll', this.handleScroll); 
@@ -70,27 +72,41 @@ class Gallery extends React.Component {
         //console.log(this.state.isLoading)
     }
 
+    handleLoading = () => {
+        if (this.state.isLoading) {
+            return (<div class="spinner-border text-primary m-4" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>)
+        }
+    }
+
     render() {
         let {photos} = this.state
         console.log(photos)
         
         return (
-            <MDBContainer>
-                <MDBRow>
-                    <MDBCol className="text-center">
-                        <h1>Gallery</h1>
-                    </MDBCol>
-                </MDBRow>
-                <MDBRow className="justify-content-center">
-                {photos.map(photo => (
-                    <MDBCol size="12" sm="6" lg="4" key={photo.id} className="gallery-photos">
-                        <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} 
-                        className="img-fluid" alt="" />
-                    </MDBCol>
-                    ))
-                }
-                </MDBRow>
-            </MDBContainer>
+            <div id="gallery-page">
+                <PageHeader title="Gallery"></PageHeader>
+                    <MDBContainer>
+
+                        {/*<MDBRow>
+                            <MDBCol className="text-center">
+                                <h1>Gallery</h1>
+                            </MDBCol>
+                        </MDBRow>*/}
+                        <MDBRow className="justify-content-center">
+                        {photos.map(photo => (
+                            <MDBCol size="12" sm="6" lg="4" key={photo.id} className="gallery-photos mb-3">
+                                <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} 
+                                className="img-fluid z-depth-2 rounded" alt="" />
+                            </MDBCol>
+                            ))
+                        }
+                        
+                        </MDBRow>
+                        <div id="loading">{this.handleLoading()}</div>
+                    </MDBContainer>
+            </div>
         )
     }
 

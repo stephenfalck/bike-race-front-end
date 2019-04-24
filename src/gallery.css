@@ -2,3 +2,8 @@
 .gallery-photos {
     height: auto;
 }
+
+#loading {
+   width: 100%;
+   text-align: center;
+}
