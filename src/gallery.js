@@ -2,6 +2,7 @@ import React  from 'react';
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import PageHeader from './page_header'
 import './gallery.css';
+import Image from './gallery_image'
 //import { func } from '../../../../../../Library/Caches/typescript/3.3/node_modules/@types/prop-types';
 
 class Gallery extends React.Component {
@@ -17,7 +18,6 @@ class Gallery extends React.Component {
     }
 
     componentDidMount() {
-        //this.setState({isLoading: true})
         this.getPhotos();
         window.addEventListener('scroll', this.handleScroll);
         return () => window.removeEventListener('scroll', this.handleScroll); 
@@ -52,8 +52,6 @@ class Gallery extends React.Component {
                     prevState.page = data.photos.page;
                     return {photos: filtered, page: prevState.page, isLoading: false}
                 });
-                //console.log(this.state.photos);
-                //console.log(this.state.isLoading)
             },
             (error) => {
                 this.setState({
@@ -101,8 +99,7 @@ class Gallery extends React.Component {
                         <MDBRow className="justify-content-center">
                         {photos.map(photo => (
                             <MDBCol size="12" sm="6" lg="4" key={photo.id} className="gallery-photos mb-3">
-                                <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} 
-                                className="img-fluid z-depth-2" alt="" />
+                                <Image photo={photo} />
                             </MDBCol>
                             ))
                         }
