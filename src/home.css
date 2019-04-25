@@ -54,6 +54,15 @@
     color: rgb(129,177,255);
 }
 
+.social-links a:hover {
+    color: rgb(44, 125, 255);
+    
+}
+
+#home-page > div.main > div > div.row.social-links > div > a > i:hover {
+    transform: translateY(-1px);
+}
+
 @media screen and (max-width: 767px) {
     #countdown {
         border: none;

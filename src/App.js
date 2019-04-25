@@ -27,6 +27,7 @@ class App extends Component {
           <Route path="/location" component={Location} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/submissions" component={Submissions} />
+          
         </div>
       </Router>
     );

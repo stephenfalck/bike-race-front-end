@@ -1,6 +1,8 @@
 import React from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput } from "mdbreact";
 import './submissions.css';
+import PageHeader from './page_header';
+import Footer from './footer';
 
 const RESET_VALUES = {first_name: '', last_name: '', email: '', slogan: ''};
 
@@ -51,16 +53,13 @@ class Submissions extends React.Component {
 
     render() {
         return (
+            <div id="submissions-page">
+            <PageHeader title="Submissions" />
             <MDBContainer>
-                <MDBRow>
-                    <MDBCol>
-                        <h1 className='text-center'>Submissions</h1>
-                    </MDBCol>
-                </MDBRow>
-                <MDBRow>
+                <MDBRow id="submit-form">
                     <MDBCol>
                         <form>
-                            <div className="white-text">
+                            <div className="grey-text">
                                 <MDBInput
                                     label="First name"
                                     icon="user"
@@ -118,6 +117,8 @@ class Submissions extends React.Component {
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>
+            <Footer />
+            </div>
         )
     };
 

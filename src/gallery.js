@@ -10,18 +10,22 @@ class Gallery extends React.Component {
 
         this.state = {
             error: null,
-            isLoading: false,
+            isLoading: true,
             page: 0,
             photos: []
         }
     }
 
     componentDidMount() {
-        this.setState({isLoading: true})
+        //this.setState({isLoading: true})
         this.getPhotos();
         window.addEventListener('scroll', this.handleScroll);
         return () => window.removeEventListener('scroll', this.handleScroll); 
         
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll)
     }
 
     componentDidUpdate() {
@@ -41,12 +45,12 @@ class Gallery extends React.Component {
         .then(
             (data) => {
                 this.setState((prevState) => {
-                    //photos: data
-                    //photos: data.photos.photo
-                    let arr = prevState.photos.concat(data.photos.photo);
+
+                    let arr = prevState.photos.concat(data.photos.photo)
+                    let filtered = this.unique(arr)
+
                     prevState.page = data.photos.page;
-                    return {photos: arr, page: prevState.page, isLoading: false}
-                    
+                    return {photos: filtered, page: prevState.page, isLoading: false}
                 });
                 //console.log(this.state.photos);
                 //console.log(this.state.isLoading)
@@ -60,6 +64,12 @@ class Gallery extends React.Component {
         )
     }
 
+    unique = (data) => {
+       return Array.from(new Set(data.map(i => i.id)))
+                .map(id => {
+                    return data.find(i => i.id === id)
+                })
+     }
 
     handleScroll = () => {
         if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) {
@@ -74,35 +84,28 @@ class Gallery extends React.Component {
 
     handleLoading = () => {
         if (this.state.isLoading) {
-            return (<div class="spinner-border text-primary m-4" role="status">
-                        <span class="sr-only">Loading...</span>
+            return (<div className="spinner-border text-primary m-4" role="status">
+                        <span className="sr-only">Loading...</span>
                     </div>)
         }
     }
 
     render() {
         let {photos} = this.state
-        console.log(photos)
+        //console.log(photos)
         
         return (
             <div id="gallery-page">
                 <PageHeader title="Gallery"></PageHeader>
                     <MDBContainer>
-
-                        {/*<MDBRow>
-                            <MDBCol className="text-center">
-                                <h1>Gallery</h1>
-                            </MDBCol>
-                        </MDBRow>*/}
                         <MDBRow className="justify-content-center">
                         {photos.map(photo => (
                             <MDBCol size="12" sm="6" lg="4" key={photo.id} className="gallery-photos mb-3">
                                 <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} 
-                                className="img-fluid z-depth-2 rounded" alt="" />
+                                className="img-fluid z-depth-2" alt="" />
                             </MDBCol>
                             ))
                         }
-                        
                         </MDBRow>
                         <div id="loading">{this.handleLoading()}</div>
                     </MDBContainer>

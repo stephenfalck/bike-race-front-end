@@ -63,7 +63,7 @@ class Home extends React.Component {
                                     <MDBRow className="header-content">
                                         <MDBCol size="12" sm="6" className="order-last" id="countdown">
                                             <MDBRow className="">
-                                                <MDBAnimation duration="3s" delay="1s" type="fadeIn">
+                                                <MDBAnimation duration="3s" delay="1.5s" type="fadeIn">
                                                     <MDBCol size="12" id="months">
                                                     <h1 className="font-weight-bold" id="month-unit">{this.state.months}</h1>
                                                     <h1 id="countdown-month-header">Months</h1>
@@ -71,23 +71,23 @@ class Home extends React.Component {
                                                 </MDBAnimation>
                                             </MDBRow>
                                             <MDBRow className="">
-                                                <MDBAnimation duration="3s" delay="1.8s" type="fadeIn">
+                                                <MDBAnimation duration="3s" delay="1.9s" type="fadeIn">
                                                     <MDBCol size="3" id="days"><h2 className="units">{this.state.days}</h2><p>Days</p></MDBCol>
                                                 </MDBAnimation>
-                                                <MDBAnimation duration="3s" delay="2.6s" type="fadeIn">
+                                                <MDBAnimation duration="3s" delay="2.7s" type="fadeIn">
                                                     <MDBCol size="3" id="hours"><h2 className="units">{this.state.hours}</h2> <p>Hours</p></MDBCol> 
                                                 </MDBAnimation>
-                                                <MDBAnimation duration="3s" delay="3.4s" type="fadeIn">
+                                                <MDBAnimation duration="3s" delay="3.5s" type="fadeIn">
                                                     <MDBCol size="3" id="minutes"><h2 className="units">{this.state.minutes}</h2><p className="full-text">Minutes</p><p className="short-text">Mins</p></MDBCol> 
                                                 </MDBAnimation>
-                                                <MDBAnimation duration="3s" delay="4.2s" type="fadeIn">
+                                                <MDBAnimation duration="3s" delay="4.3s" type="fadeIn">
                                                     <MDBCol size="3" id="seconds"><h2 className="units">{this.state.seconds}</h2><p className="full-text">Seconds</p><p className="short-text">Secs</p></MDBCol> 
                                                 </MDBAnimation>
                                             </MDBRow>
                                         </MDBCol>
                                         
                                         <MDBCol size="12" sm="6" className="order-md-last" id="title">
-                                            <MDBAnimation duration="3s" type="fadeIn">
+                                            <MDBAnimation duration="3s" delay="1s" type="fadeIn">
                                                 <MDBRow>
                                                     <MDBCol>
                                                         <h1 className="font-weight-bold">Boulder Bike Tour</h1>

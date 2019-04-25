@@ -1,6 +1,9 @@
 import React from 'react';
-import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
+import { MDBContainer} from 'mdbreact';
 import RidersMapContainer from './riders_map_container'
+import PageHeader from './page_header';
+import Footer from './footer'
+import './location.css'
 
 
 class Location extends React.Component {
@@ -42,14 +45,13 @@ class Location extends React.Component {
     render() {
         let {riders} = this.state
         return (
-            <MDBContainer>
-                <MDBRow>
-                    <MDBCol>
-                    <h1 className="text-center">Location</h1>
-                    </MDBCol>
-                </MDBRow>
-                <RidersMapContainer riders={riders}></RidersMapContainer>
-            </MDBContainer> 
+            <div id="location-page">
+                <PageHeader title="Location" />
+                    <MDBContainer>
+                        <RidersMapContainer riders={riders}></RidersMapContainer>
+                    </MDBContainer> 
+                <Footer />
+            </div>
         )
     }
 

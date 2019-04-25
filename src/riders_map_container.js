@@ -12,7 +12,7 @@ class RidersMapContainer extends React.Component {
                 riders={this.props.riders}
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`}   
                 loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `470px`, width: `auto` }} />}
+                containerElement={<div style={{ height: `470px`, width: `auto` }} className="map-container p-2" />}
                 mapElement={<div style={{ height: `100%` }} />}
             />
         );

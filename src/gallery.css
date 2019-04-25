@@ -1,6 +1,5 @@
-
-.gallery-photos {
-    height: auto;
+#gallery-page {
+    min-height: inherit;
 }
 
 #loading {

@@ -12,7 +12,6 @@ import './navbar.css'
             this.state = {
               isTop: true,
               isOpen: false
-
             };
           }
         
@@ -48,8 +47,8 @@ import './navbar.css'
                     <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                         <MDBNavbarNav className="pr-1"right>
 
-                            <MDBNavItem active>
-                                <MDBNavLink to="/">Home</MDBNavLink>
+                            <MDBNavItem>
+                                <MDBNavLink exact to="/">Home</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
                                 <MDBNavLink to="/gallery">Gallery</MDBNavLink>

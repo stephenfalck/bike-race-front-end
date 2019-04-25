@@ -1,0 +1,10 @@
+footer {
+    /*background-color: #718ec4;*/
+    background-color: rgb(129,177,255);
+    margin-top: 3.5rem;
+    color: white;
+}
+
+.footer-copyright { 
+    background-color: rgba(0,0,0,0.2)
+}
