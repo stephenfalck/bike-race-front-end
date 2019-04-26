@@ -1,6 +1,6 @@
 import React  from 'react';
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-import PageHeader from './page_header'
+import PageHeader from '../page_header/page_header'
 import './gallery.css';
 import Image from './gallery_image'
 //import { func } from '../../../../../../Library/Caches/typescript/3.3/node_modules/@types/prop-types';

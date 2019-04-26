@@ -1,8 +1,8 @@
 import React from 'react';
 import { MDBContainer} from 'mdbreact';
 import RidersMapContainer from './riders_map_container'
-import PageHeader from './page_header';
-import Footer from './footer'
+import PageHeader from '../page_header/page_header';
+import Footer from '../footer/footer'
 import './location.css'
 
 

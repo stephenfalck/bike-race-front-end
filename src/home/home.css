@@ -3,7 +3,7 @@
 }
 
 .header {
-    background: url('./assets/img/athlete-bicycle-bicyclist-15765.jpg') center;
+    background: url('../assets/img/athlete-bicycle-bicyclist-15765.jpg') center;
     background-size: cover;
     background-repeat: no-repeat;
     min-height: inherit;
@@ -107,5 +107,11 @@
 
     #countdown, #title {
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .header-body {
+        padding-top: 30px;
     }
 }

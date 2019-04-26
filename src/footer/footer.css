@@ -1,0 +1,28 @@
+footer {
+    /*background-color: #718ec4;*/
+    background-color: rgb(129,177,255);
+    margin-top: 3.5rem;
+    color: white;
+    
+}
+
+.footer-social a {
+    color: white;
+}
+
+.footer-social a {
+    color: white;
+}
+
+.footer-social a:hover {
+    color: #F2F2F2;
+    
+}
+
+#submissions-page > footer > div.container > div > div > a > i:hover {
+    transform: translateY(-1px);
+}
+
+.footer-copyright { 
+    background-color: rgba(0,0,0,0.2)
+}

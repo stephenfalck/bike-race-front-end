@@ -4,7 +4,7 @@
 }
 
 #location-container {
-    height: calc(100vh - 596px);
+    min-height: calc(100vh - 612px);
 }
 
 .map-container {

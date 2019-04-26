@@ -1,8 +1,8 @@
 import React from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput } from "mdbreact";
 import './submissions.css';
-import PageHeader from './page_header';
-import Footer from './footer';
+import PageHeader from '../page_header/page_header';
+import Footer from '../footer/footer';
 
 const RESET_VALUES = {first_name: '', last_name: '', email: '', slogan: ''};
 

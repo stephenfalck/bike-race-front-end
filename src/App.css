@@ -3,3 +3,12 @@
   /*background: rgba(63,81,181,.7);*/
   padding-top: 56px;
 }
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}

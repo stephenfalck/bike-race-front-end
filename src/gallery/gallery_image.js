@@ -1,5 +1,5 @@
 import React  from 'react';
-import image from './assets/img/46533490675_d40ef53a17.jpg';
+import image from '../assets/img/46533490675_d40ef53a17.jpg';
 
 class Image extends React.Component {
     image = () => {

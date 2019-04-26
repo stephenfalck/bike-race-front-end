@@ -91,15 +91,17 @@ class Home extends React.Component {
                                                 <MDBRow>
                                                     <MDBCol>
                                                         <h1 className="font-weight-bold">Boulder Bike Tour</h1>
-                                                        <h3>1st April 2020</h3>
+                                                        <h2>1st April 2020</h2>
                                                     </MDBCol>
                                                 </MDBRow>
                                                 <MDBRow>
                                                     <MDBCol size="12">
-                                                    The Boulder Bike Tour is a multiple stage bicycle race
-                                                    held in Colorado, at the foot of the Rocky Mountains. The race will start on April 1st 2020 and like the other Grand 
-                                                    Tours (the Giro d'Italia and the Vuelta a España), it consists of 21 day-long stages over the 
-                                                    course of 23 days.
+                                                    <h6>
+                                                        The Boulder Bike Tour is a multiple stage bicycle race
+                                                        held in Colorado, at the foot of the Rocky Mountains. The race will start on April 1st 2020 and like the other Grand 
+                                                        Tours (the Giro d'Italia and the Vuelta a España), it consists of 21 day-long stages over the 
+                                                        course of 23 days.
+                                                    </h6>
                                                     </MDBCol>
                                                 </MDBRow>
                                             </MDBAnimation>

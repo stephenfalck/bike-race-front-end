@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route} from "react-router-dom";
-import Home from './home';
-import Riders from './riders';
-import Gallery from './gallery';
-import Submissions from './submissions';
-import Location from './location';
+import Home from './home/home';
+import Riders from './riders/riders';
+import Gallery from './gallery/gallery'; 
+import Location from './location_components/location';
 import './App.css';
-import Navbar from './navbar';
+import asyncComponent from './hoc/async_component'
+import Navbar from './navbar/navbar';
+
+const AsyncSubmissionsPage = asyncComponent(() => {
+  return import('./submissions/submissions')
+});
 
 class App extends Component {
   
@@ -26,8 +30,7 @@ class App extends Component {
           <Route path="/riders" component={Riders} />
           <Route path="/location" component={Location} />
           <Route path="/gallery" component={Gallery} />
-          <Route path="/submissions" component={Submissions} />
-          
+          <Route path="/submissions" component={AsyncSubmissionsPage} />
         </div>
       </Router>
     );

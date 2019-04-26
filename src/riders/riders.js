@@ -1,10 +1,10 @@
 import React from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody } from "mdbreact";
 import './riders.css';
-import placeholder from './assets/img/placeholder-person.jpeg';
-import PageHeader from './page_header';
-import Footer from './footer';
-//import { isThisTypeNode } from 'typescript';
+import placeholder from '../assets/img/placeholder-person.jpeg';
+import PageHeader from '../page_header/page_header';
+import Footer from '../footer/footer';
+
 
 class Riders extends React.Component {
     constructor(props) {
@@ -15,8 +15,6 @@ class Riders extends React.Component {
             isLoaded: false,
             riders: []
         }
-
-        //this.getRiders = this.getRiders.bind(this)
     }
 
   
