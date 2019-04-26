@@ -12,7 +12,9 @@ class Submissions extends React.Component {
         
 
         this.state = {
-            message: Object.assign({}, RESET_VALUES)
+            message: Object.assign({}, RESET_VALUES),
+            warning: '',
+            length: 0
         };
     }
 
@@ -21,11 +23,13 @@ class Submissions extends React.Component {
         const value = target.value;
         const name = target.name;
 
+        this.characterCount(target);
+
         this.setState((prevState) => {
             prevState.message[name] = value;
             console.log(this.state.message[name])
 
-            return {message: prevState.message}
+            return {message: prevState.message, warning: '', length: value.length}
         })
     }
 
@@ -34,6 +38,12 @@ class Submissions extends React.Component {
 
         let url = '/submissions';
         let data = this.state.message;
+
+        if (data.slogan.length > 50) {
+            console.log("message too long")
+            this.setState({warning: "Too many Characters!"})
+            return
+        }
 
         fetch(url, {
             method: 'POST',
@@ -51,14 +61,27 @@ class Submissions extends React.Component {
 
     }
 
+    characterCount = (target) => {
+        console.log()
+        if ((target.value.length > 50) && (target.name === 'slogan')) {
+            document.getElementById('character-count').className = "invalid-input";
+        } else if ((target.value.length < 1) && (target.name === 'slogan')) {
+            document.getElementById('character-count').className = "";
+        } else if ((target.value.length) && (target.name === 'slogan')) {
+            document.getElementById('character-count').className = "valid-input";
+        }
+    }
+
     render() {
         return (
             <div id="submissions-page">
             <PageHeader title="Submissions" />
-            <MDBContainer>
+            <MDBContainer id="form-container">
                 <MDBRow id="submit-form">
                     <MDBCol>
-                        <form>
+                        <form 
+                            onSubmit={this.handleSubmit}   
+                        >
                             <div className="grey-text">
                                 <MDBInput
                                     label="First name"
@@ -66,6 +89,7 @@ class Submissions extends React.Component {
                                     group
                                     type="text"
                                     validate
+                                    required
                                     error="wrong"
                                     success="right"
                                     name="first_name"
@@ -76,7 +100,7 @@ class Submissions extends React.Component {
                                     icon="user"
                                     group
                                     type="text"
-                                    validate
+                                    required
                                     error="wrong"
                                     success="right"
                                     name="last_name"
@@ -87,7 +111,7 @@ class Submissions extends React.Component {
                                     icon="envelope"
                                     group
                                     type="email"
-                                    validate
+                                    required
                                     error="wrong"
                                     success="right"
                                     name="email"
@@ -97,18 +121,23 @@ class Submissions extends React.Component {
                                 <MDBInput
                                     type="textarea"
                                     rows="2"
-                                    label="Your slogan"
+                                    label="Your slogan (50 characters max)"
                                     icon="pencil-alt"
                                     name="slogan"
+                                    required
                                     onChange={this.handleChange}
-                                />
+                                >
+                                <div id="character-count">Characters: {this.state.message.slogan.length}</div>
+                                <span id="warning-message">{this.state.warning}</span>
+                                </MDBInput>
                             </div>
+                            
                             <div className="text-center">
                             <MDBBtn
                                 color="light-blue"
                                 className="mb-3"
                                 type="submit"
-                                onClick={this.handleSubmit}
+                                //onClick={this.handleSubmit}
                             >
                                 Submit <MDBIcon far icon="paper-plane" className="ml-1" />
                             </MDBBtn>
