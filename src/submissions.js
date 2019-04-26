@@ -59,6 +59,13 @@ class Submissions extends React.Component {
             message: Object.assign({}, RESET_VALUES)
         })
 
+        const success = document.createElement('h3');
+        success.id ="success-message"
+        success.innerHTML = "Thank you for your entry!"
+        document.getElementById('form-container').replaceChild(success, document.getElementById('submit-form')) 
+
+
+        //document.getElementById('form-container').innerHTML = 'Thank you for your submission!'
     }
 
     characterCount = (target) => {

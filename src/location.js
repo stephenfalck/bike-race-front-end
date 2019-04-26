@@ -47,7 +47,7 @@ class Location extends React.Component {
         return (
             <div id="location-page">
                 <PageHeader title="Location" />
-                    <MDBContainer>
+                    <MDBContainer id="location-container">
                         <RidersMapContainer riders={riders}></RidersMapContainer>
                     </MDBContainer> 
                 <Footer />
