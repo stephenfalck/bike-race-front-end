@@ -91,21 +91,20 @@ class Gallery extends React.Component {
     render() {
         let {photos} = this.state
         //console.log(photos)
-        
         return (
             <div id="gallery-page">
-                <PageHeader title="Gallery"></PageHeader>
-                    <MDBContainer>
-                        <MDBRow className="justify-content-center">
-                        {photos.map(photo => (
-                            <MDBCol size="12" sm="6" lg="4" key={photo.id} className="gallery-photos mb-3">
-                                <Image photo={photo} />
-                            </MDBCol>
-                            ))
-                        }
-                        </MDBRow>
-                        <div id="loading">{this.handleLoading()}</div>
-                    </MDBContainer>
+                <PageHeader title="Gallery" />
+                <MDBContainer>
+                    <MDBRow className="justify-content-center">
+                    {photos.map(photo => (
+                        <MDBCol size="12" sm="6" lg="4" key={photo.id} className="gallery-photos mb-3">
+                            <Image photo={photo} />
+                        </MDBCol>
+                        ))
+                    }
+                    </MDBRow>
+                    <div id="loading">{this.handleLoading()}</div>
+                </MDBContainer>
             </div>
         )
     }
