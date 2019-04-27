@@ -4,7 +4,7 @@ import RidersMap from './riders_map'
 class RidersMapContainer extends React.Component {
     
     render() {
-        const apiKey = 'AIzaSyB0R2_PPL1TyWO7zyGLYhpAX7XeeTxET4A'
+        const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
         
         return(
             

@@ -27,7 +27,7 @@ class Submissions extends React.Component {
 
         this.setState((prevState) => {
             prevState.message[name] = value;
-            console.log(this.state.message[name])
+            //console.log(this.state.message[name])
 
             return {message: prevState.message, warning: '', length: value.length}
         })
@@ -40,7 +40,7 @@ class Submissions extends React.Component {
         let data = this.state.message;
 
         if (data.slogan.length > 50) {
-            console.log("message too long")
+            //console.log("message too long")
             this.setState({warning: "Too many Characters!"})
             return
         }
@@ -65,11 +65,9 @@ class Submissions extends React.Component {
         document.getElementById('form-container').replaceChild(success, document.getElementById('submit-form')) 
 
 
-        //document.getElementById('form-container').innerHTML = 'Thank you for your submission!'
     }
 
     characterCount = (target) => {
-        console.log()
         if ((target.value.length > 50) && (target.name === 'slogan')) {
             document.getElementById('character-count').className = "invalid-input";
         } else if ((target.value.length < 1) && (target.name === 'slogan')) {
@@ -144,7 +142,6 @@ class Submissions extends React.Component {
                                 color="light-blue"
                                 className="mb-3"
                                 type="submit"
-                                //onClick={this.handleSubmit}
                             >
                                 Submit <MDBIcon far icon="paper-plane" className="ml-1" />
                             </MDBBtn>
