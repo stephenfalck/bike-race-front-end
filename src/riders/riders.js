@@ -23,7 +23,8 @@ class Riders extends React.Component {
     }
 
     getRiders() {
-        fetch('/riders')
+        //fetch('/riders')
+        fetch('https://ancient-cove-95094.herokuapp.com/riders')
         .then(res => res.json())
         .then(
             (data) => {

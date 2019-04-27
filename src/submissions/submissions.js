@@ -36,7 +36,8 @@ class Submissions extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        let url = '/submissions';
+        //let url = '/submissions';
+        let url = 'https://ancient-cove-95094.herokuapp.com/submissions'
         let data = this.state.message;
 
         if (data.slogan.length > 50) {
