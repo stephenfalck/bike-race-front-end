@@ -13,8 +13,8 @@ class Submissions extends React.Component {
 
         this.state = {
             message: Object.assign({}, RESET_VALUES),
-            warning: '',
-            length: 0
+            length: 0,
+            response: {}
         };
     }
 
@@ -29,22 +29,17 @@ class Submissions extends React.Component {
             prevState.message[name] = value;
             //console.log(this.state.message[name])
 
-            return {message: prevState.message, warning: '', length: value.length}
+            return {message: prevState.message, length: value.length}
         })
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
+        e.target.className += " was-validated";
 
         let url = '/submissions';
         //let url = 'https://ancient-cove-95094.herokuapp.com/submissions'
         let data = this.state.message;
-
-        if (data.slogan.length > 50) {
-            //console.log("message too long")
-            this.setState({warning: "Too many Characters!"})
-            return
-        }
 
         fetch(url, {
             method: 'POST',
@@ -52,20 +47,32 @@ class Submissions extends React.Component {
             headers: {
                 'Content-type': 'application/json'
             }
-        }).then(res => res.json())
-        .then(response => console.log('Success:', JSON.stringify(response)))
-        .catch(error => console.error('Error:', error));
+        }).then(response => {
+            this.setState({
+                response: response
+            })
 
-        this.setState({
-            message: Object.assign({}, RESET_VALUES)
+            if (response.status !== 201) {
+                console.log('Looks like there was a problem. Status Code: ' + response.status);
+                return;
+            }
+    
+            response.json().then((submission) => {
+                console.log("Success", JSON.stringify(submission));
+              });
+              this.checkResponseStatus();
         })
+        .catch(error => console.error('Error:', error));        
+       
+    }
 
-        const success = document.createElement('h3');
-        success.id ="success-message"
-        success.innerHTML = "Thank you for your entry!"
-        document.getElementById('form-container').replaceChild(success, document.getElementById('submit-form')) 
-
-
+    checkResponseStatus = () => {
+        if (this.state.response.status === 201) {
+            const success = document.createElement('h3');
+            success.id ="success-message"
+            success.innerHTML = "Thank you for your entry!"
+            document.getElementById('form-container').replaceChild(success, document.getElementById('submit-form'))
+        }
     }
 
     characterCount = (target) => {
@@ -86,7 +93,8 @@ class Submissions extends React.Component {
                 <MDBRow id="submit-form">
                     <MDBCol>
                         <form 
-                            onSubmit={this.handleSubmit}   
+                            onSubmit={this.handleSubmit}  
+                            noValidate 
                         >
                             <div className="grey-text">
                                 <MDBInput
@@ -94,13 +102,15 @@ class Submissions extends React.Component {
                                     icon="user"
                                     group
                                     type="text"
-                                    validate
                                     required
                                     error="wrong"
                                     success="right"
                                     name="first_name"
                                     onChange={this.handleChange}
-                                />
+                                >
+                                <div className="valid-feedback">Looks good!</div>
+                                <div className="invalid-feedback">Please provide a first name.</div>
+                                </MDBInput>
                                 <MDBInput
                                     label="Last name"
                                     icon="user"
@@ -111,7 +121,10 @@ class Submissions extends React.Component {
                                     success="right"
                                     name="last_name"
                                     onChange={this.handleChange}
-                                />
+                                >
+                                <div className="valid-feedback">Looks good!</div>
+                                <div className="invalid-feedback">Please provide a last name.</div>
+                                </MDBInput>
                                 <MDBInput
                                     label="Your email"
                                     icon="envelope"
@@ -121,20 +134,24 @@ class Submissions extends React.Component {
                                     error="wrong"
                                     success="right"
                                     name="email"
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                     onChange={this.handleChange}
-                                />
-                                
+                                >
+                                <div className="valid-feedback">Looks good!</div>
+                                <div className="invalid-feedback">Please provide a valid email address.</div>
+                                </MDBInput>
                                 <MDBInput
                                     type="textarea"
                                     rows="2"
-                                    label="Your slogan (50 characters max)"
+                                    label="Slogan (50 characters max)"
                                     icon="pencil-alt"
                                     name="slogan"
+                                    maxLength="50"
                                     required
                                     onChange={this.handleChange}
                                 >
                                 <div id="character-count">Characters: {this.state.message.slogan.length}</div>
-                                <span id="warning-message">{this.state.warning}</span>
+                                <div className="invalid-feedback">Please provide a slogan.</div>
                                 </MDBInput>
                             </div>
                             
